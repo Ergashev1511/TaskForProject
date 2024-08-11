@@ -35,14 +35,14 @@
                      IsReadOnly="True"
                      CanUserReorderColumns="False"
                      CanUserResizeColumns="False"
-                     Margin="10"
+                     Margin="15"
                      BorderThickness="1"
                      SelectionMode="Single"
                      AlternationCount="2"
                      HeadersVisibility="Column"
                      ItemsSource="{Binding res,Mode=TwoWay}"
                 x:Name="booklist_datagrod"
-               Style="{DynamicResource datagrid_style}"
+               
                       >
                 <DataGrid.Columns >
                     <DataGridTextColumn Header="№" Binding="{Binding Id}" IsReadOnly="True" Width="0.5*"></DataGridTextColumn>

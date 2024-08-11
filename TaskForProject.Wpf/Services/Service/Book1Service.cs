@@ -19,12 +19,9 @@ namespace TaskForProject.Wpf.Services.Service
             {
                 var client = new HttpClient();
                 var request = new HttpRequestMessage(HttpMethod.Post, Auth.BASE_URL + "/api/Book1/CreateBook1");
-                var content = new MultipartFormDataContent();
 
-                content.Add(new StringContent(book1.BookName), "BookName");
-                content.Add(new StringContent(book1.Author), "Author");
-                content.Add(new StringContent(book1.Description), "Description");
-                content.Add(new StringContent(book1.Year), "Year");
+                var json = JsonConvert.SerializeObject(book1);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
 
                 request.Content = content;
 
@@ -36,8 +33,8 @@ namespace TaskForProject.Wpf.Services.Service
                 }
                 return false;
             }
-            catch 
-            { 
+            catch
+            {
                 return false;
             }
         }

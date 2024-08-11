@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TaskForProject.Api.Models;
 using TaskForProject.Wpf.Api;
+using TaskForProject.Wpf.Models;
 using TaskForProject.Wpf.Services.IService;
 
 namespace TaskForProject.Wpf.Services.Service
@@ -17,35 +18,21 @@ namespace TaskForProject.Wpf.Services.Service
         {
             try
             {
-                //var client = new HttpClient();
-                //var request = new HttpRequestMessage(HttpMethod.Post, Auth.BASE_URL + "/api/Book2/CreateBook2");
-                //var content = new MultipartFormDataContent();
-
-                //content.Add(new StringContent(book2.BookName), "BookName");
-                //content.Add(new StringContent(book2.Author), "Author");
-                //content.Add(new StringContent(book2.Description), "Description");
-                //content.Add(new StringContent(book2.Year), "Year");
-
-                //request.Content = content;
-
-                //var response = await client.SendAsync(request);
-                //if (response.IsSuccessStatusCode)
-                //{
-                //    var res = await response.Content.ReadAsStringAsync();
-                //    return true;
-                //}
-                //return false;
                 var client = new HttpClient();
-                var jsonContent = JsonSerializer.Serialize(book2);
-                var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+                var request = new HttpRequestMessage(HttpMethod.Post, Auth.BASE_URL + "/api/Book2/CreateBook2");
 
-                var response = await client.PostAsync(Auth.BASE_URL + "/api/Book2/CreateBook2", content);
-                var res = await response.Content.ReadAsStringAsync();
-                Console.WriteLine($"Response: {res}");
+                var json = JsonConvert.SerializeObject(book2);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
 
+                request.Content = content;
 
-
-                return response.IsSuccessStatusCode;
+                var response = await client.SendAsync(request);
+                if (response.IsSuccessStatusCode)
+                {
+                    var res = await response.Content.ReadAsStringAsync();
+                    return true;
+                }
+                return false;
             }
             catch
             {

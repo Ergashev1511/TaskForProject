@@ -1,0 +1,120 @@
+﻿<Window x:Class="TaskForProject.Wpf.Windows.CreateBookWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TaskForProject.Wpf.Windows"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        ResizeMode="CanMinimize"
+        Title="CreateBookWindow" Height="500" Width="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="40"/>
+            <RowDefinition Height="*"/> 
+        </Grid.RowDefinitions>
+        <Border CornerRadius="10 10 0 0" 
+                Background="DarkBlue"
+                Grid.Row="0">
+            <Button
+                x:Name="close_btn"
+                Style="{DynamicResource CloseButton}"
+                HorizontalAlignment="Right"
+                Click="close_btn_Click"
+                ></Button>
+           
+        </Border>
+        <Border 
+            BorderBrush="Black"
+            BorderThickness="1.5"
+            Grid.Row="1"
+     
+                CornerRadius="0 0 10 10">
+            <StackPanel>
+                <StackPanel Margin="50 20 0 0">
+                    <TextBlock
+                        FontSize="18"
+                        Text="Book Name"
+                        ></TextBlock>
+                    <TextBox
+                        x:Name="bookname_txt"
+                       Padding="10 3 0 0"
+                        FontSize="20"
+                        
+                        HorizontalAlignment="Left"
+                        Height="40"
+                        Width="250"
+                        BorderThickness="2"
+                        BorderBrush="Black"
+                        ></TextBox>
+                </StackPanel> <StackPanel Margin="50 20 0 0">
+                    <TextBlock
+                        FontSize="18"
+                        Text="Author"
+                        ></TextBlock>
+                    <TextBox
+                        x:Name="author_txt"
+                       Padding="10 3 0 0"
+                        FontSize="20"
+                        
+                        HorizontalAlignment="Left"
+                        Height="40"
+                        Width="250"
+                        BorderThickness="2"
+                        BorderBrush="Black"
+                        ></TextBox>
+                </StackPanel>
+
+                <StackPanel Margin="50 20 0 0">
+                    <TextBlock
+         FontSize="18"
+         Text="Describtion"
+         ></TextBlock>
+                    <TextBox
+                        x:Name="describtion_txt"
+        Padding="10 3 0 0"
+         FontSize="20"
+         
+         HorizontalAlignment="Left"
+         Height="40"
+         Width="250"
+         BorderThickness="2"
+         BorderBrush="Black"
+         ></TextBox>
+                </StackPanel>
+                <StackPanel Margin="50 20 0 0">
+                    <TextBlock
+         FontSize="18"
+         Text="Year"
+         ></TextBlock>
+                    <TextBox
+                        x:Name="year_txt"
+        Padding="10 3 0 0"
+         FontSize="20"
+         
+         HorizontalAlignment="Left"
+         Height="40"
+         Width="250"
+         BorderThickness="2"
+         BorderBrush="Black"
+         ></TextBox>
+                </StackPanel>
+
+                <Button
+                    x:Name="Save"
+                    Width="200"
+                    Height="35"
+                    Margin="0 40 0 0"
+                    Background="Green"
+                    Content="Save"
+                    Foreground="White"
+                    FontSize="20"
+                    Click="Save_Click_1"
+                    >
+                    
+                </Button>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

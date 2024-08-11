@@ -43,6 +43,8 @@ namespace TaskForProject.Wpf.Services.Service
                 var res = await response.Content.ReadAsStringAsync();
                 Console.WriteLine($"Response: {res}");
 
+
+
                 return response.IsSuccessStatusCode;
             }
             catch
